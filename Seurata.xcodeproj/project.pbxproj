@@ -13,6 +13,7 @@
 		2363A2762ADBB0E500C28CAA /* WaypointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363A2752ADBB0E500C28CAA /* WaypointSet.swift */; };
 		2363A2782ADBB18D00C28CAA /* WaypointsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363A2772ADBB18D00C28CAA /* WaypointsManager.swift */; };
 		2363A27A2ADBBB3600C28CAA /* WaypointSetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363A2792ADBBB3600C28CAA /* WaypointSetsViewController.swift */; };
+		23D38ED42ADC0FDC00CAA5E3 /* WaypointSetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D38ED32ADC0FDC00CAA5E3 /* WaypointSetsTableViewCell.swift */; };
 		23E26DC82ADBC3980094F2E4 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E26DC72ADBC3980094F2E4 /* Injector.swift */; };
 		23E26DCB2ADBC69D0094F2E4 /* WaypointSetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E26DCA2ADBC69D0094F2E4 /* WaypointSetsViewModel.swift */; };
 		23F19E992ADB9C7100194E96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F19E982ADB9C7100194E96 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 		2363A2752ADBB0E500C28CAA /* WaypointSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSet.swift; sourceTree = "<group>"; };
 		2363A2772ADBB18D00C28CAA /* WaypointsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointsManager.swift; sourceTree = "<group>"; };
 		2363A2792ADBBB3600C28CAA /* WaypointSetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSetsViewController.swift; sourceTree = "<group>"; };
+		23D38ED32ADC0FDC00CAA5E3 /* WaypointSetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSetsTableViewCell.swift; sourceTree = "<group>"; };
 		23E26DC72ADBC3980094F2E4 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		23E26DCA2ADBC69D0094F2E4 /* WaypointSetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSetsViewModel.swift; sourceTree = "<group>"; };
 		23F19E952ADB9C7100194E96 /* Seurata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seurata.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +61,7 @@
 				23F19E9C2ADB9C7100194E96 /* HomeViewController.swift */,
 				2363A26E2ADBA82C00C28CAA /* RoutesViewController.swift */,
 				2363A2792ADBBB3600C28CAA /* WaypointSetsViewController.swift */,
+				23D38ED22ADC0FB100CAA5E3 /* WaypointSetsViewController */,
 				2363A2702ADBAB9700C28CAA /* WaypointSetViewController.swift */,
 			);
 			path = ViewControllers;
@@ -72,6 +75,14 @@
 				2363A2772ADBB18D00C28CAA /* WaypointsManager.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		23D38ED22ADC0FB100CAA5E3 /* WaypointSetsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				23D38ED32ADC0FDC00CAA5E3 /* WaypointSetsTableViewCell.swift */,
+			);
+			path = WaypointSetsViewController;
 			sourceTree = "<group>";
 		};
 		23E26DC92ADBC67C0094F2E4 /* ViewModels */ = {
@@ -197,6 +208,7 @@
 				2363A2712ADBAB9700C28CAA /* WaypointSetViewController.swift in Sources */,
 				2363A2762ADBB0E500C28CAA /* WaypointSet.swift in Sources */,
 				23F19E9B2ADB9C7100194E96 /* SceneDelegate.swift in Sources */,
+				23D38ED42ADC0FDC00CAA5E3 /* WaypointSetsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

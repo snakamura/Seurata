@@ -23,6 +23,12 @@ class WaypointSetsViewController: UITableViewController {
             .store(in: &subscriptions)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! WaypointSetsTableViewCell
+        let waypointSetViewController = segue.destination as! WaypointSetViewController
+        waypointSetViewController.waypointSetName = cell.waypointSetName
+    }
+
     // MARK: UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,8 +38,8 @@ class WaypointSetsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let waypointSetName = self.viewModel.waypointSetNames[indexPath.row]
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "waypointSet", for: indexPath)
-        cell.textLabel?.text = waypointSetName
+        let cell = tableView.dequeueReusableCell(withIdentifier: "waypointSet", for: indexPath) as! WaypointSetsTableViewCell
+        cell.waypointSetName = waypointSetName
         return cell
     }
 
