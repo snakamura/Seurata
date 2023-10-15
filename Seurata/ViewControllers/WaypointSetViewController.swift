@@ -13,6 +13,8 @@ class WaypointSetViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = self.waypointSetName
+
         self.viewModel.$waypointSet
             .receive(on: RunLoop.main)
             .sink { _ in self.tableView.reloadData() }

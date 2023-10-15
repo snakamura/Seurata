@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-294" y="-46"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="i6E-cV-HLi">
             <objects>
                 <tableViewController id="u4C-y2-Eqx" customClass="HomeViewController" customModule="Seurata" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,13 +82,13 @@
                             <outlet property="delegate" destination="u4C-y2-Eqx" id="5h9-qD-hGu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="VTY-OO-4g2"/>
+                    <navigationItem key="navigationItem" title="Home" id="VTY-OO-4g2"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHU-m7-sMe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="788.54961832061065" y="-46.478873239436624"/>
         </scene>
-        <!--Routes View Controller-->
+        <!--Routes-->
         <scene sceneID="rhC-tZ-wRj">
             <objects>
                 <tableViewController id="Yif-7I-sxF" customClass="RoutesViewController" customModule="Seurata" customModuleProvider="target" sceneMemberID="viewController">
@@ -111,13 +111,13 @@
                             <outlet property="delegate" destination="Yif-7I-sxF" id="fGI-vT-q3y"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="NIW-65-bnS"/>
+                    <navigationItem key="navigationItem" title="Routes" id="NIW-65-bnS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Y6-qd-zoU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1833" y="407"/>
         </scene>
-        <!--Waypoint Sets View Controller-->
+        <!--Waypoints-->
         <scene sceneID="ZbL-nE-0wF">
             <objects>
                 <tableViewController id="bcI-yp-Jqj" customClass="WaypointSetsViewController" customModule="Seurata" customModuleProvider="target" sceneMemberID="viewController">
@@ -143,7 +143,7 @@
                             <outlet property="delegate" destination="bcI-yp-Jqj" id="onu-Ek-fFn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="wHn-Yj-pgw"/>
+                    <navigationItem key="navigationItem" title="Waypoints" id="wHn-Yj-pgw"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0H-oy-YiJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
