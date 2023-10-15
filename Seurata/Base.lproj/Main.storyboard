@@ -139,7 +139,7 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="bcI-yp-Jqj" id="oTy-IE-IbE"/>
+                            <outlet property="dataSource" destination="bcI-yp-Jqj" id="7Y5-kJ-FeQ"/>
                             <outlet property="delegate" destination="bcI-yp-Jqj" id="onu-Ek-fFn"/>
                         </connections>
                     </tableView>
