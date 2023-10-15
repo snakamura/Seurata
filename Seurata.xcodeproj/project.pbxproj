@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2363A26F2ADBA82C00C28CAA /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363A26E2ADBA82C00C28CAA /* RoutesViewController.swift */; };
 		2363A2712ADBAB9700C28CAA /* WaypointSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363A2702ADBAB9700C28CAA /* WaypointSetViewController.swift */; };
+		2363A2742ADBB08500C28CAA /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363A2732ADBB08500C28CAA /* Waypoint.swift */; };
+		2363A2762ADBB0E500C28CAA /* WaypointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363A2752ADBB0E500C28CAA /* WaypointSet.swift */; };
+		2363A2782ADBB18D00C28CAA /* WaypointsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363A2772ADBB18D00C28CAA /* WaypointsManager.swift */; };
 		2363A27A2ADBBB3600C28CAA /* WaypointSetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363A2792ADBBB3600C28CAA /* WaypointSetsViewController.swift */; };
 		23F19E992ADB9C7100194E96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F19E982ADB9C7100194E96 /* AppDelegate.swift */; };
 		23F19E9B2ADB9C7100194E96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F19E9A2ADB9C7100194E96 /* SceneDelegate.swift */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		2363A26E2ADBA82C00C28CAA /* RoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
 		2363A2702ADBAB9700C28CAA /* WaypointSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSetViewController.swift; sourceTree = "<group>"; };
+		2363A2732ADBB08500C28CAA /* Waypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
+		2363A2752ADBB0E500C28CAA /* WaypointSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSet.swift; sourceTree = "<group>"; };
+		2363A2772ADBB18D00C28CAA /* WaypointsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointsManager.swift; sourceTree = "<group>"; };
 		2363A2792ADBBB3600C28CAA /* WaypointSetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointSetsViewController.swift; sourceTree = "<group>"; };
 		23F19E952ADB9C7100194E96 /* Seurata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seurata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F19E982ADB9C7100194E96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +60,16 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		2363A2722ADBB05300C28CAA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2363A2732ADBB08500C28CAA /* Waypoint.swift */,
+				2363A2752ADBB0E500C28CAA /* WaypointSet.swift */,
+				2363A2772ADBB18D00C28CAA /* WaypointsManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		23F19E8C2ADB9C7100194E96 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +89,7 @@
 		23F19E972ADB9C7100194E96 /* Seurata */ = {
 			isa = PBXGroup;
 			children = (
+				2363A2722ADBB05300C28CAA /* Models */,
 				2363A26D2ADBA2D100C28CAA /* ViewControllers */,
 				23F19E982ADB9C7100194E96 /* AppDelegate.swift */,
 				23F19E9A2ADB9C7100194E96 /* SceneDelegate.swift */,
@@ -158,8 +175,11 @@
 				2363A27A2ADBBB3600C28CAA /* WaypointSetsViewController.swift in Sources */,
 				23F19E9D2ADB9C7100194E96 /* HomeViewController.swift in Sources */,
 				23F19E992ADB9C7100194E96 /* AppDelegate.swift in Sources */,
+				2363A2782ADBB18D00C28CAA /* WaypointsManager.swift in Sources */,
+				2363A2742ADBB08500C28CAA /* Waypoint.swift in Sources */,
 				2363A26F2ADBA82C00C28CAA /* RoutesViewController.swift in Sources */,
 				2363A2712ADBAB9700C28CAA /* WaypointSetViewController.swift in Sources */,
+				2363A2762ADBB0E500C28CAA /* WaypointSet.swift in Sources */,
 				23F19E9B2ADB9C7100194E96 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
