@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     // MARK: UIViewController
 
     override func viewDidLoad() {
