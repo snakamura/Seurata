@@ -22,6 +22,12 @@ class WaypointSetViewController: UITableViewController {
         self.viewModel.waypointSetName = self.waypointSetName
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! WaypointSetTableViewCell
+        let waypointViewController = segue.destination as! WaypointViewController
+        waypointViewController.waypoint = cell.waypoint
+    }
+
     // MARK: UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

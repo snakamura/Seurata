@@ -3,6 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -181,6 +183,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BTh-fD-GLb" kind="show" id="5iE-QM-YAL"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -193,6 +198,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M3l-Qm-Z6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2790" y="-323"/>
+        </scene>
+        <!--Waypoint View Controller-->
+        <scene sceneID="J0G-Yf-iNK">
+            <objects>
+                <viewController id="BTh-fD-GLb" customClass="WaypointViewController" customModule="Seurata" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TVj-SM-qWg">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-Yy-UnZ">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BTh-fD-GLb" id="MBF-EG-9IC"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l3o-26-2cz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2T4-Yy-UnZ" firstAttribute="leading" secondItem="l3o-26-2cz" secondAttribute="leading" id="F1W-ax-IYK"/>
+                            <constraint firstItem="l3o-26-2cz" firstAttribute="trailing" secondItem="2T4-Yy-UnZ" secondAttribute="trailing" id="Rec-lA-gQx"/>
+                            <constraint firstItem="2T4-Yy-UnZ" firstAttribute="top" secondItem="l3o-26-2cz" secondAttribute="top" id="tvL-Bn-keb"/>
+                            <constraint firstItem="l3o-26-2cz" firstAttribute="bottom" secondItem="2T4-Yy-UnZ" secondAttribute="bottom" id="zj6-wv-GzW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cx3-A1-2ye"/>
+                    <connections>
+                        <outlet property="mapView" destination="2T4-Yy-UnZ" id="ZwO-jc-OJ6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vls-nS-4dk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3722.9007633587785" y="-323.23943661971833"/>
         </scene>
     </scenes>
     <resources>
