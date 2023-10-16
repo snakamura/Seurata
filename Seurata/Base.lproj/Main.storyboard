@@ -136,7 +136,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="CRY-N6-SId" kind="show" id="xgo-Dy-fC9"/>
+                                    <segue destination="CRY-N6-SId" kind="show" identifier="show" id="xgo-Dy-fC9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -145,11 +145,86 @@
                             <outlet property="delegate" destination="bcI-yp-Jqj" id="onu-Ek-fFn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Waypoints" id="wHn-Yj-pgw"/>
+                    <navigationItem key="navigationItem" title="Waypoints" id="wHn-Yj-pgw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XSw-io-ury">
+                            <connections>
+                                <segue destination="QAX-QJ-CHL" kind="presentation" identifier="add" id="rch-bE-KFQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0H-oy-YiJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="4SO-uB-eIP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1833" y="-323"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ISN-bw-nMp">
+            <objects>
+                <navigationController id="QAX-QJ-CHL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kA6-nt-B2j">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xho-R6-zk1" kind="relationship" relationship="rootViewController" id="chq-Zb-vwZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A0V-d3-lQ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2789" y="-1141"/>
+        </scene>
+        <!--Waypoint Set Add View Controller-->
+        <scene sceneID="66Z-bC-Rtl">
+            <objects>
+                <viewController id="xho-R6-zk1" customClass="WaypointSetAddViewController" customModule="Seurata" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mDF-L4-K4Y">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gY1-8N-svm">
+                                <rect key="frame" x="58" y="56" width="319" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfa-O0-tuK">
+                                <rect key="frame" x="16" y="63" width="32" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MV9-F7-FWw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MV9-F7-FWw" firstAttribute="trailing" secondItem="gY1-8N-svm" secondAttribute="trailing" constant="16" id="0OX-Kn-KjV"/>
+                            <constraint firstItem="jfa-O0-tuK" firstAttribute="leading" secondItem="MV9-F7-FWw" secondAttribute="leading" constant="16" id="134-k5-WR4"/>
+                            <constraint firstItem="gY1-8N-svm" firstAttribute="top" secondItem="MV9-F7-FWw" secondAttribute="top" id="jTZ-qs-Ggr"/>
+                            <constraint firstItem="jfa-O0-tuK" firstAttribute="top" secondItem="MV9-F7-FWw" secondAttribute="top" constant="7" id="nGM-JZ-Ui6"/>
+                            <constraint firstItem="gY1-8N-svm" firstAttribute="leading" secondItem="jfa-O0-tuK" secondAttribute="trailing" constant="10" id="sul-np-ag3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XXC-9Y-LI9">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="U7T-G7-zsf">
+                            <connections>
+                                <action selector="cancel" destination="xho-R6-zk1" id="otT-hT-dfi"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cl8-vk-PIO">
+                            <connections>
+                                <action selector="save" destination="xho-R6-zk1" id="v6l-hH-vrq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="cl8-vk-PIO" id="4gX-cl-juE"/>
+                        <outlet property="urlTextField" destination="gY1-8N-svm" id="WUT-4H-EgM"/>
+                        <segue destination="4SO-uB-eIP" kind="unwind" identifier="dismiss" unwindAction="dismissWithSegue:" id="7py-m1-yvN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I1g-dA-0xC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3690.8396946564885" y="-1142.2535211267607"/>
         </scene>
         <!--Waypoint Set View Controller-->
         <scene sceneID="6jP-LS-a7y">
@@ -231,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vls-nS-4dk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3722.9007633587785" y="-323.23943661971833"/>
+            <point key="canvasLocation" x="3691" y="-323"/>
         </scene>
     </scenes>
     <resources>

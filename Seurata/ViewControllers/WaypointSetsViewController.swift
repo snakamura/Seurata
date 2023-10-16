@@ -6,6 +6,9 @@ class WaypointSetsViewController: UITableViewController {
         self.subscriptions.forEach { $0.cancel() }
     }
 
+    @IBAction private func dismiss(segue: UIStoryboardSegue) {
+    }
+
     // MARK: UIViewController
 
     override func viewDidLoad() {
@@ -24,9 +27,11 @@ class WaypointSetsViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! WaypointSetsTableViewCell
-        let waypointSetViewController = segue.destination as! WaypointSetViewController
-        waypointSetViewController.waypointSetName = cell.waypointSetName
+        if segue.identifier == "show" {
+            let cell = sender as! WaypointSetsTableViewCell
+            let waypointSetViewController = segue.destination as! WaypointSetViewController
+            waypointSetViewController.waypointSetName = cell.waypointSetName
+        }
     }
 
     // MARK: UITableViewDataSource
