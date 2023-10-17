@@ -19,7 +19,8 @@ class FileWaypointsManager: WaypointsManager {
         return try await Task {
             return try FileManager.default.contentsOfDirectory(
                 at: self.directory,
-                includingPropertiesForKeys: nil
+                includingPropertiesForKeys: nil,
+                options: [.skipsHiddenFiles]
             ).map { ($0.lastPathComponent as NSString).deletingPathExtension }
         }.value
     }
