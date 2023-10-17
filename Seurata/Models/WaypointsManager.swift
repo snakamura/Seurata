@@ -21,7 +21,9 @@ class FileWaypointsManager: WaypointsManager {
                 at: self.directory,
                 includingPropertiesForKeys: nil,
                 options: [.skipsHiddenFiles]
-            ).map { ($0.lastPathComponent as NSString).deletingPathExtension }
+            ).map {
+                ($0.lastPathComponent as NSString).deletingPathExtension
+            }.sorted()
         }.value
     }
 
