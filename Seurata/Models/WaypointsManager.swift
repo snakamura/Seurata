@@ -1,17 +1,31 @@
 import Foundation
 
-protocol WaypointsManager {
+@MainActor
+protocol WaypointsManager: AnyObject {
+    var delegate: WaypointsManagerDelegate? { get set }
+
     func listWaypointSetNames() async throws -> [String]
     func waypointSet(by name: String) async throws -> WaypointSet
     func addWaypointSet(_ waypointSet: WaypointSet) async throws
 }
 
+@MainActor
+protocol WaypointsManagerDelegate: AnyObject {
+    func waypointsManager(
+        _ waypointsManager: WaypointsManager,
+        didAdd waypointSet: WaypointSet
+    )
+}
+
+@MainActor
 class FileWaypointsManager: WaypointsManager {
     init(directory: URL) {
         precondition(directory.hasDirectoryPath)
 
         self.directory = directory
     }
+
+    weak var delegate: WaypointsManagerDelegate?
 
     // MARK: WaypointsManager
 
@@ -41,6 +55,8 @@ class FileWaypointsManager: WaypointsManager {
             let data = try JSONEncoder().encode(waypointSet)
             try data.write(to: path, options: [.withoutOverwriting])
         }.value
+
+        self.delegate?.waypointsManager(self, didAdd: waypointSet)
     }
 
     private let directory: URL
