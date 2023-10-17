@@ -183,12 +183,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gY1-8N-svm">
-                                <rect key="frame" x="58" y="56" width="319" height="34"/>
+                                <rect key="frame" x="71" y="56" width="306" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfa-O0-tuK">
-                                <rect key="frame" x="16" y="63" width="32" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfa-O0-tuK">
+                                <rect key="frame" x="16" y="63" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIo-D5-Qer">
+                                <rect key="frame" x="69" y="101" width="308" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="667-oQ-sK5">
+                                <rect key="frame" x="27" y="107.66666666666667" width="32" height="21.000000000000014"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -199,9 +210,17 @@
                         <constraints>
                             <constraint firstItem="MV9-F7-FWw" firstAttribute="trailing" secondItem="gY1-8N-svm" secondAttribute="trailing" constant="16" id="0OX-Kn-KjV"/>
                             <constraint firstItem="jfa-O0-tuK" firstAttribute="leading" secondItem="MV9-F7-FWw" secondAttribute="leading" constant="16" id="134-k5-WR4"/>
+                            <constraint firstItem="BIo-D5-Qer" firstAttribute="centerY" secondItem="667-oQ-sK5" secondAttribute="centerY" id="4P1-Wj-7Rg"/>
+                            <constraint firstItem="BIo-D5-Qer" firstAttribute="top" secondItem="gY1-8N-svm" secondAttribute="bottom" constant="10" id="Km8-El-Gzl"/>
+                            <constraint firstItem="BIo-D5-Qer" firstAttribute="leading" secondItem="667-oQ-sK5" secondAttribute="trailing" constant="10" id="i2D-5x-Qgv"/>
                             <constraint firstItem="gY1-8N-svm" firstAttribute="top" secondItem="MV9-F7-FWw" secondAttribute="top" id="jTZ-qs-Ggr"/>
                             <constraint firstItem="jfa-O0-tuK" firstAttribute="top" secondItem="MV9-F7-FWw" secondAttribute="top" constant="7" id="nGM-JZ-Ui6"/>
                             <constraint firstItem="gY1-8N-svm" firstAttribute="leading" secondItem="jfa-O0-tuK" secondAttribute="trailing" constant="10" id="sul-np-ag3"/>
+                            <constraint firstItem="gY1-8N-svm" firstAttribute="centerY" secondItem="jfa-O0-tuK" secondAttribute="centerY" id="vDw-VE-vL7"/>
+                            <constraint firstItem="MV9-F7-FWw" firstAttribute="trailing" secondItem="BIo-D5-Qer" secondAttribute="trailing" constant="16" id="wHP-xs-YwC"/>
+                            <constraint firstItem="gY1-8N-svm" firstAttribute="width" secondItem="BIo-D5-Qer" secondAttribute="width" multiplier="0.993506" id="wi6-7B-MUB"/>
+                            <constraint firstItem="jfa-O0-tuK" firstAttribute="width" secondItem="667-oQ-sK5" secondAttribute="width" multiplier="1.40625" id="xrk-mZ-Jen"/>
+                            <constraint firstItem="667-oQ-sK5" firstAttribute="leading" secondItem="MV9-F7-FWw" secondAttribute="leading" constant="27" id="zdv-4j-SfU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XXC-9Y-LI9">
@@ -217,8 +236,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nameTextField" destination="gY1-8N-svm" id="bLj-nv-leq"/>
                         <outlet property="saveButton" destination="cl8-vk-PIO" id="4gX-cl-juE"/>
-                        <outlet property="urlTextField" destination="gY1-8N-svm" id="WUT-4H-EgM"/>
+                        <outlet property="urlTextField" destination="BIo-D5-Qer" id="Aad-xV-9Fi"/>
                         <segue destination="4SO-uB-eIP" kind="unwind" identifier="dismiss" unwindAction="dismissWithSegue:" id="7py-m1-yvN"/>
                     </connections>
                 </viewController>

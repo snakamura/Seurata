@@ -1,7 +1,7 @@
 import UIKit
 
 class WaypointSetAddViewController: UIViewController {
-    private func loadWaypointSet(url: URL) async throws -> WaypointSet {
+    private func loadWaypointSet(name: String, url: URL) async throws -> WaypointSet {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let (data, response) = try await session.data(from: url)
         let httpResponse = response as! HTTPURLResponse
@@ -10,10 +10,7 @@ class WaypointSetAddViewController: UIViewController {
         }
 
         let waypoints = try WPTParser().parse(data)
-        return WaypointSet(
-            name: (url.lastPathComponent as NSString).deletingPathExtension,
-            waypoints: waypoints
-        )
+        return WaypointSet(name: name, waypoints: waypoints)
     }
 
     @IBAction private func save() {
@@ -22,13 +19,14 @@ class WaypointSetAddViewController: UIViewController {
         }
 
         guard let urlText = self.urlTextField.text,
-              let url = URL(string: urlText) else {
+              let url = URL(string: urlText),
+              let name = self.nameTextField.text else {
             return
         }
 
         self.saveTask = Task { @MainActor in
             do {
-                let waypointSet = try await self.loadWaypointSet(url: url)
+                let waypointSet = try await self.loadWaypointSet(name: name, url: url)
                 try await self.waypointsManager.addWaypointSet(waypointSet)
                 self.performSegue(withIdentifier: "dismiss", sender: self)
             } catch let e {
@@ -60,15 +58,17 @@ class WaypointSetAddViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.urlTextField.becomeFirstResponder()
+        self.nameTextField.becomeFirstResponder()
     }
 
+    @IBOutlet private var nameTextField: UITextField!
     @IBOutlet private var urlTextField: UITextField!
     @IBOutlet private var saveButton: UIBarButtonItem!
 
     private let waypointsManager: WaypointsManager = FileInjector.default.waypointsManager
     private var saveTask: Task<Void, Never>? {
         didSet {
+            self.nameTextField.isEnabled = self.saveTask == nil
             self.urlTextField.isEnabled = self.saveTask == nil
             self.saveButton.isEnabled = self.saveTask == nil
         }
