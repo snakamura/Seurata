@@ -14,7 +14,7 @@ protocol WaypointsManager: AnyObject {
 protocol WaypointsManagerDelegate: AnyObject {
     func waypointsManager(
         _ waypointsManager: WaypointsManager,
-        didAdd waypointSet: WaypointSet
+        didAddWaypointSet name: String
     )
     func waypointsManager(
         _ waypointsManager: WaypointsManager,
@@ -61,7 +61,7 @@ class FileWaypointsManager: WaypointsManager {
             try data.write(to: path, options: [.withoutOverwriting])
         }.value
 
-        self.delegate?.waypointsManager(self, didAdd: waypointSet)
+        self.delegate?.waypointsManager(self, didAddWaypointSet: waypointSet.name)
     }
 
     func removeWaypointSet(_ waypointSetName: String) async throws {

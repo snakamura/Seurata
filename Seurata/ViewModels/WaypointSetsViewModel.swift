@@ -56,7 +56,7 @@ class WaypointSetsViewModel: WaypointsManagerDelegate {
 
     func waypointsManager(
         _ waypointsManager: WaypointsManager,
-        didAdd waypointSet: WaypointSet
+        didAddWaypointSet name: String
     ) {
         // We reload all waypoint sets here instead of inserting this waypoint
         // set to waypointSetNames. This is because it's hard to guarantee that
