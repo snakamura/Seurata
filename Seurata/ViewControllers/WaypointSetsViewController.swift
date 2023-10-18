@@ -48,6 +48,15 @@ class WaypointSetsViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let waypointSetName = self.viewModel.waypointSetNames[indexPath.row]
+
+            self.viewModel.removeWaypointSet(waypointSetName)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+
     private let viewModel = WaypointSetsViewModel(waypointsManager: FileInjector.default.waypointsManager)
     private var subscriptions: [AnyCancellable] = []
 }

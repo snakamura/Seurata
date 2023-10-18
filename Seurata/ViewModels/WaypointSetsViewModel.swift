@@ -18,6 +18,21 @@ class WaypointSetsViewModel: WaypointsManagerDelegate {
     @Published var waypointSetNames: [String] = []
     @Published var error: Error?
 
+    func removeWaypointSet(_ waypointSetName: String) {
+        Task { @MainActor in
+            do {
+                try await self.waypointsManager.removeWaypointSet(waypointSetName)
+            } catch (let e) {
+                self.error = e
+            }
+        }
+
+        // Since removing a waypoint set from WaypointsManager is asynchronous
+        // we need to update waypointSetNames directly in synchronous way
+        // so that UI can see the updated list.
+        self.waypointSetNames.removeAll { $0 == waypointSetName }
+    }
+
     private func reloadWaypointSets() {
         var taskToCancel: Task<Void, Never>?
         let task = Task { @MainActor in
@@ -57,6 +72,17 @@ class WaypointSetsViewModel: WaypointsManagerDelegate {
         // If we inserted this waypoint set into waypointSetNames here,
         // it can be lost when this happens.
         self.reloadWaypointSets()
+    }
+
+    func waypointsManager(
+        _ waypointsManager: WaypointsManager,
+        didRemoveWaypointSet name: String
+    ) {
+        // We ignore the case where there is no waypoint set name with this name
+        // in waypointSetNames. This can happen when you remove a waypoint set
+        // by removeWaypointSet(_:) because it removes the waypoint set name
+        // directly.
+        self.waypointSetNames.removeAll { $0 == name }
     }
 
     private let waypointsManager: WaypointsManager

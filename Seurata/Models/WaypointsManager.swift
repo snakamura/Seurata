@@ -7,6 +7,7 @@ protocol WaypointsManager: AnyObject {
     func listWaypointSetNames() async throws -> [String]
     func waypointSet(by name: String) async throws -> WaypointSet
     func addWaypointSet(_ waypointSet: WaypointSet) async throws
+    func removeWaypointSet(_ waypointSetName: String) async throws
 }
 
 @MainActor
@@ -14,6 +15,10 @@ protocol WaypointsManagerDelegate: AnyObject {
     func waypointsManager(
         _ waypointsManager: WaypointsManager,
         didAdd waypointSet: WaypointSet
+    )
+    func waypointsManager(
+        _ waypointsManager: WaypointsManager,
+        didRemoveWaypointSet name: String
     )
 }
 
@@ -57,6 +62,15 @@ class FileWaypointsManager: WaypointsManager {
         }.value
 
         self.delegate?.waypointsManager(self, didAdd: waypointSet)
+    }
+
+    func removeWaypointSet(_ waypointSetName: String) async throws {
+        let path = self.path(for: waypointSetName)
+        try await Task {
+            try FileManager.default.removeItem(at: path)
+        }.value
+
+        self.delegate?.waypointsManager(self, didRemoveWaypointSet: waypointSetName)
     }
 
     private func path(for waypointSetName: String) -> URL {
