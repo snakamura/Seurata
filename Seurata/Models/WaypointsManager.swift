@@ -42,7 +42,7 @@ class FileWaypointsManager: WaypointsManager {
     }
 
     func waypointSet(by name: String) async throws -> WaypointSet {
-        let path = URL(string: "\(name).json", relativeTo: self.directory)!
+        let path = self.path(for: name)
         return try await Task {
             let data = try Data(contentsOf: path)
             return try JSONDecoder().decode(WaypointSet.self, from: data)
@@ -50,13 +50,17 @@ class FileWaypointsManager: WaypointsManager {
     }
 
     func addWaypointSet(_ waypointSet: WaypointSet) async throws {
-        let path = URL(string: "\(waypointSet.name).json", relativeTo: self.directory)!
+        let path = self.path(for: waypointSet.name)
         try await Task {
             let data = try JSONEncoder().encode(waypointSet)
             try data.write(to: path, options: [.withoutOverwriting])
         }.value
 
         self.delegate?.waypointsManager(self, didAdd: waypointSet)
+    }
+
+    private func path(for waypointSetName: String) -> URL {
+        return URL(string: "\(waypointSetName).json", relativeTo: self.directory)!
     }
 
     private let directory: URL
